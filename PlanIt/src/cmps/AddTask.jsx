@@ -1,41 +1,45 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { updateBoard } from "../store/actions/board.actions";
 
-export function AddTask({ groupId, boards, setBoards, onCancel }) {
+
+export function AddTask({ groupId, onCancel, handleBoardUpdate }) {
     const [taskTitle, setTaskTitle] = useState('');
+    const board = useSelector(storeState => storeState.boardModule.board)
 
-    const handleInputChange = ({ target: { value } }) => setTaskTitle(value);
+    function handleInputChange({ target }) {
+        const { value } = target
+        setTaskTitle(value)
+    }
 
-    const updateBoardsWithNewTask = () => {
-        return boards.map(board => ({
+    function onAddTask() {
+        const updatedBoard = {
             ...board,
             groups: board.groups.map(group =>
                 group.id === groupId
                     ? { ...group, tasks: [...group.tasks, { id: Date.now(), title: taskTitle }] }
                     : group
             )
-        }));
+        }
+        handleBoardUpdate(updatedBoard)
+        setTaskTitle('');
+        onCancel();
     };
 
-    const handleAddTask = () => {
-        if (taskTitle.trim()) {
-            const updatedBoards = updateBoardsWithNewTask();
-            setBoards(updatedBoards);
-            localStorage.setItem('boards', JSON.stringify(updatedBoards));
-            setTaskTitle('');
-            onCancel();
-        }
-    };
 
     return (
-        <div className="task-input">
+        <section className="task-input">
             <input
                 type="text"
                 value={taskTitle}
                 onChange={handleInputChange}
                 placeholder="Enter a name for this card..."
             />
-            <button onClick={handleAddTask} className="add-card-btn">Add card</button>
-            <button onClick={onCancel} className="delete-add-card">X</button>
-        </div>
+            <div className="task-actions">
+                <button onClick={onAddTask} className="add-card-btn">Add card</button>
+                <button onClick={onCancel} className="delete-add-card">X</button>
+            </div>
+        </section>
+
     );
 }
