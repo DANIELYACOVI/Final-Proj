@@ -1,4 +1,3 @@
-
 import { storageService } from '../async-storage.service'
 import { makeId, saveToStorage } from '../util.service'
 import { userService } from '../user'
@@ -32,11 +31,31 @@ const data = [
       {
         id: "l101",
         title: "Done",
-        color: "#61bd4f",
+        color: "#4bce97",
       },
       {
         id: "l102",
         title: "Progress",
+        color: "#9f8fef",
+      },
+      {
+        id: "l103",
+        title: "Full Of Bugs",
+        color: "#579dff",
+      },
+      {
+        id: "l104",
+        title: "Check Befor Done",
+        color: "#f87168",
+      },
+      {
+        id: "l105",
+        title: "Next Round",
+        color: "#fea362",
+      },
+      {
+        id: "l106",
+        title: "To Do",
         color: "#9f8fef",
       },
     ],
@@ -51,6 +70,11 @@ const data = [
         fullname: "Pavel Yelsukov",
         imgUrl: "",
       },
+      {
+        _id: "u101",
+        fullname: "Daniel Yacovi",
+        imgUrl: "",
+      },
     ],
     groups: [
       {
@@ -63,14 +87,9 @@ const data = [
             title: "Replace logo",
             labels: [
               {
-                id: "l1010",
+                id: "l101",
                 title: "Done",
-                color: "#61bd4f",
-              },
-              {
-                id: "l1011",
-                title: "Progress",
-                color: "#9f8fef",
+                color: "#4bce97",
               },
             ],
             members: [
@@ -102,6 +121,13 @@ const data = [
             id: "c103",
             title: "Do that",
             archivedAt: 1589983468418,
+            labels: [
+              {
+                id: "l103",
+                title: "full of bugs",
+                color: "#579dff",
+              },
+            ],
           },
           {
             id: "c104",
@@ -163,14 +189,16 @@ const data = [
             title: "Footer",
             labels: [
               {
-                id: "l1010",
-                title: "Done",
-                color: "#61bd4f",
-              },
-              {
-                id: "l1011",
-                title: "Progress",
+                id: "l106",
+                title: "To Do",
                 color: "#9f8fef",
+              },
+            ],
+            members: [
+              {
+                _id: "u103",
+                fullname: "Pavel Yelsukov",
+                imgUrl: "",
               },
             ],
           },
@@ -185,6 +213,20 @@ const data = [
           {
             id: "c107",
             title: "Login-cmp",
+            labels: [
+              {
+                id: "l101",
+                title: "Done",
+                color: "#4bce97",
+              },
+            ],
+            members: [
+              {
+                _id: "u103",
+                fullname: "Pavel Yelsukov",
+                imgUrl: "",
+              },
+            ],
           },
           {
             id: "c108",
@@ -202,6 +244,20 @@ const data = [
             title: "Conduct User Testing",
             status: "pending",
             priority: "high",
+            labels: [
+              {
+                id: "l103",
+                title: "full of bugs",
+                color: "#579dff",
+              },
+            ],
+            members: [
+              {
+                _id: "u101",
+                fullname: "Daniel Yacovi",
+                imgUrl: "",
+              },
+            ],
           },
           {
             id: "c109",
@@ -220,12 +276,40 @@ const data = [
             id: "c110",
             title: "Finalize Documentation",
             status: "pending",
+            labels: [
+              {
+                id: "l105",
+                title: "Next Round",
+                color: "#fea362",
+              },
+            ],
+            members: [
+              {
+                _id: "u101",
+                fullname: "Daniel Yacovi",
+                imgUrl: "",
+              },
+            ],
           },
           {
             id: "c114",
             title: "Deploy to Staging",
             status: "pending",
             priority: "high",
+            labels: [
+              {
+                id: "l104",
+                title: "Check Befor Done",
+                color: "#f87168",
+              },
+            ],
+            members: [
+              {
+                _id: "u102",
+                fullname: "Sean Mamistalov",
+                imgUrl: "",
+              },
+            ],
           },
         ],
         style: {},
@@ -255,7 +339,7 @@ const data = [
   },
   {
     _id: 'b2',
-    title: "Final Proj",
+    title: "Coding",
     isStarred: false,
     archivedAt: 1589983468418,
     createdBy: {
@@ -270,11 +354,31 @@ const data = [
       {
         id: "l101",
         title: "Done",
-        color: "#61bd4f",
+        color: "#4bce97",
       },
       {
         id: "l102",
         title: "Progress",
+        color: "#9f8fef",
+      },
+      {
+        id: "l103",
+        title: "Full Of Bugs",
+        color: "#579dff",
+      },
+      {
+        id: "l104",
+        title: "Check Befor Done",
+        color: "#f87168",
+      },
+      {
+        id: "l105",
+        title: "Next Round",
+        color: "#fea362",
+      },
+      {
+        id: "l106",
+        title: "To Do",
         color: "#9f8fef",
       },
     ],
@@ -287,6 +391,11 @@ const data = [
       {
         _id: "u103",
         fullname: "Pavel Yelsukov",
+        imgUrl: "",
+      },
+      {
+        _id: "u101",
+        fullname: "Daniel Yacovi",
         imgUrl: "",
       },
     ],
@@ -386,10 +495,59 @@ const data = [
           {
             id: "c107",
             title: "Login-cmp",
+            labels: [
+              {
+                id: "l101",
+                title: "Done",
+                color: "#4bce97",
+              },
+            ],
+            members: [
+              {
+                _id: "u102",
+                fullname: "Sean Mamistalov",
+                imgUrl: "",
+              },
+              {
+                _id: "u103",
+                fullname: "Pavel Yelsukov",
+                imgUrl: "",
+              },
+              {
+                _id: "u101",
+                fullname: "Daniel Yacovi",
+                imgUrl: "",
+              },
+            ],
           },
+          
           {
             id: "c108",
             title: "SCSS vars",
+            labels: [
+              {
+                id: "l101",
+                title: "Done",
+                color: "#4bce97",
+              },
+            ],
+            members: [
+              {
+                _id: "u102",
+                fullname: "Sean Mamistalov",
+                imgUrl: "",
+              },
+              {
+                _id: "u103",
+                fullname: "Pavel Yelsukov",
+                imgUrl: "",
+              },
+              {
+                _id: "u101",
+                fullname: "Daniel Yacovi",
+                imgUrl: "",
+              },
+            ],
           },
         ],
         style: {},
@@ -403,6 +561,13 @@ const data = [
             title: "Conduct User Testing",
             status: "pending",
             priority: "high",
+            labels: [
+              {
+                id: "l103",
+                title: "Full Of Bugs",
+                color: "#579dff",
+              },
+            ],
           },
           {
             id: "c109",
