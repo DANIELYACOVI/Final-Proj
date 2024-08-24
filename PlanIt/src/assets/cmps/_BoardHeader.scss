@@ -18,9 +18,10 @@
         align-items: center;
 
         .board-title {
-            font-size: 1.5rem;
+            font-size: 18px;
+            line-height: 32px;
+            text-align: start;
             margin-right: 0.5rem;
-            font-weight: bold;
         }
 
         .board-star {
@@ -101,4 +102,20 @@
         display: flex;
         align-items: center;
     }
+}
+.members {
+    display: flex;
+    align-items: center;
+}
+
+.member {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff; 
+    text-align: center;
 }

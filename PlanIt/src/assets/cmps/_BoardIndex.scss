@@ -3,8 +3,7 @@
     grid-template-columns: $layoutPadding*4.2 292px 1fr $layoutPadding*4.2;
     margin-top: 48px;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
-
-
+    color: #172b4d;
 
     .starred-tittle {
         display: flex;
@@ -30,6 +29,11 @@
         color: #172b4d;
         max-width: 290px;
 
+        a {
+            text-decoration: none;
+            color: #172b4d;
+        }
+
         svg {
             height: 16px;
             width: 16px;
@@ -41,12 +45,18 @@
             list-style-type: none;
 
             li {
+                display: flex;
                 border-radius: 8px;
                 padding: 6px 8px;
 
                 &.active {
                     background-color: #E9F2FF;
                     color: #0C66E4;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: #091E4224;
                 }
             }
         }
@@ -64,16 +74,22 @@
                     font-weight: 500;
                 }
             }
-
         }
 
         .lower-manu {
-            padding: 5px 0px 12px;
+            padding: 12px 0px 12px;
+
+            li {
+                padding: 6px 8px 6px 40px;
+
+
+            }
 
             .workspace-title {
                 padding-left: 12px;
                 height: 32px;
                 font-size: 12px;
+                font-weight: 500;
             }
 
             .Planit-workspace-title {
@@ -117,18 +133,21 @@
     .board-list-container {
         margin: 40px 16px 0;
 
-        .starred-tittle {
-            h3 {
-                margin: 0;
-            }
+        .workspace-title {
+            display: flex;
 
             svg {
-                width: 24px;
-                height: 24px;
-                align-items: center;
+                align-self: center;
+                width: 20px;
+                height: 20px;
+                margin: 0 20px 0 5px;
+            }
+
+            h3 {
+                font-size: 16px;
+                margin: 0;
             }
         }
-
 
         ul {
             display: grid;
@@ -145,11 +164,35 @@
                 border-radius: 3px;
                 justify-content: space-between;
 
+                .board-name {
+                    color: white;
+                    font-weight: 700;
+                    margin: 3px;
+                }
+
                 .star {
+                    margin: 0px 8px 6px 0px;
+                    color: white;
                     align-self: flex-end;
+                    transition: .4s;
+
+                    svg {
+                        width: 18px;
+                        height: 18px;
+                    }
 
                     &:hover {
                         color: yellow;
+                    }
+
+
+                    &.star-filled {
+                        color: yellow;
+
+                        &:hover {
+                            color: white;
+                            transform: scale(1.3)
+                        }
                     }
                 }
 
@@ -178,12 +221,6 @@
                 &:nth-child(4) {
                     background: linear-gradient(to right, #11998e, #38ef7d);
                 }
-
-                div {
-                    color: white;
-                    font-weight: 700;
-                    margin: 3px;
-                }
             }
         }
 
@@ -193,3 +230,62 @@
         }
     }
 }
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .main-boards-container {
+      grid-template-columns: 1fr minmax(250px, 290px) 1fr;
+  
+      .boards-manu {
+        max-width: 250px; 
+      }
+  
+      .board-list-container {
+        margin: 40px 8px 0; 
+      }
+  
+      .board-list-container ul {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
+      }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .main-boards-container {
+      grid-template-columns: 1fr;
+      padding: 0;
+    }
+  
+    .boards-manu {
+      grid-column: auto;
+      max-width: 100%; 
+      padding: 8px; 
+    }
+  
+    .board-list-container {
+      margin: 20px 8px 0;
+    }
+  
+    .board-list-container ul {
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); 
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .boards-manu {
+      font-size: 12px; 
+    }
+  
+    .board-list-container {
+      margin: 10px 4px 0; 
+    }
+  
+    .board-list-container ul {
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+  
+    .workspace-title h3 {
+      font-size: 14px;
+    }
+  }
+  

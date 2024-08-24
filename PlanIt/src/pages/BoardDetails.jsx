@@ -7,8 +7,8 @@ import { BoardGroup } from '../cmps/BoardGroup.jsx';
 import { BoardHeader } from '../cmps/BoardHeader.jsx';
 
 export function BoardDetails() {
-    const { boardId } = useParams()
-    const board = useSelector(storeState => storeState.boardModule.board)
+    const { boardId } = useParams();
+    const board = useSelector(storeState => storeState.boardModule.board);
 
     const [isAddingGroup, setIsAddingGroup] = useState(null);
 
@@ -16,14 +16,17 @@ export function BoardDetails() {
         loadBoard(boardId)
     }, [boardId])
 
-    function handleBoardUpdate(board) {
-        updateBoard(board)
+    function handleBoardUpdate(updatedBoard) {
+        updateBoard(updatedBoard)
+            .then(updatedBoards => setBoards(updatedBoards));
     }
 
-    if (!board) return <div>Loading...</div>
+    if (!board) return <div>Loading...</div>;
 
     return (
-        <section className="board-list">
+        <section 
+            className="board-list" 
+            style={{ background: board.style.background || '#ffffff' }}>
             <BoardHeader board={board} />
             <div className="board-card">
                 <BoardGroup handleBoardUpdate={handleBoardUpdate} groups={board.groups} />
@@ -31,8 +34,6 @@ export function BoardDetails() {
             <div className="add-group">
                 {isAddingGroup === board.id ? (
                     <AddGroup
-                        boardId={board.id}
-                        setBoards={setBoards}
                         onCancel={() => setIsAddingGroup(null)} />
                 ) : (
                     <button

@@ -5,9 +5,17 @@ export const ADD_BOARD = 'ADD_BOARD'
 export const UPDATE_BOARD = 'UPDATE_BOARD'
 export const ADD_BOARD_MSG = 'ADD_BOARD_MSG'
 
+export const SET_STARRED = 'SET_STARRED'
+export const ADD_STARRED_BOARD = 'ADD_STARRED_BOARD'
+export const REMOVE_STARRED_BOARD = 'REMOVE_STARRED_BOARD'
+
+export const SET_BACKGROUND_COLOR = 'SET_BACKGROUND_COLOR'
+
 const initialState = {
     boards: [],
     board: null,
+    starredBoards: [],
+    backgroundColor: '#ffffff',
 }
 
 export function boardReducer(state = initialState, action) {
@@ -15,7 +23,8 @@ export function boardReducer(state = initialState, action) {
     var boards
     switch (action.type) {
         case SET_BOARDS:
-            newState = { ...state, boards: action.boards }
+            const noStarBoards = action.boards.filter(board => !board.isStarred)
+            newState = { ...state, boards: noStarBoards }
             break
         case SET_BOARD:
             newState = { ...state, board: action.board }
@@ -33,6 +42,24 @@ export function boardReducer(state = initialState, action) {
             break
         case ADD_BOARD_MSG:
             newState = { ...state, board: { ...state.board, msgs: [...state.board.msgs || [], action.msg] } }
+            break
+        case SET_STARRED:
+            var starBoards = action.boards.filter(board => board.isStarred)
+            newState = { ...state, starredBoards: starBoards }
+        case ADD_STARRED_BOARD:
+            if (action.board) {
+                boards = state.boards.filter(board => board._id !== action.board._id)
+                const updatedState = { ...state, boards }
+                newState = { ...updatedState, starredBoards: [...updatedState.starredBoards, action.board] }
+            }
+            break
+        case REMOVE_STARRED_BOARD:
+            var starredItems = state.starredBoards.filter(board => board._id !== action.board._id)
+            const updatedState = { ...state, starredBoards: starredItems }
+            newState = { ...updatedState, boards: [...updatedState.boards, action.board] }
+            break
+            case SET_BACKGROUND_COLOR:
+                return { ...state, backgroundColor: action.color };
             break
         default:
     }
