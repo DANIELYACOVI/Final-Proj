@@ -27,8 +27,7 @@ export function AddGroup({ onCancel }) {
                 type="text"
                 value={groupTitle}
                 onChange={(e) => setGroupTitle(e.target.value)}
-                placeholder="Enter list title"
-            />
+                placeholder="Enter list title"/>
             <button onClick={() => addGroup()}>Add List</button>
             <button onClick={() => onCancel()}>X</button>
         </section>
