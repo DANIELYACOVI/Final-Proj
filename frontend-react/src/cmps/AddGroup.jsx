@@ -19,10 +19,13 @@ export function AddGroup({ onCancel }) {
             groups: [...groups, updatedGroup]
         }
         updateBoard(updatedBoard)
+<<<<<<< HEAD
 <<<<<<< HEAD:PlanIt/src/cmps/AddGroup.jsx
 
 =======
 >>>>>>> 0ddd1e1769f92a2227540e4f48dc20bdb8d1f832:frontend-react/src/cmps/AddGroup.jsx
+=======
+>>>>>>> 0ddd1e1769f92a2227540e4f48dc20bdb8d1f832
         setGroupTitle("")
     }
 
@@ -32,16 +35,22 @@ export function AddGroup({ onCancel }) {
                 type="text"
                 value={groupTitle}
                 onChange={(e) => setGroupTitle(e.target.value)}
+<<<<<<< HEAD
 <<<<<<< HEAD:PlanIt/src/cmps/AddGroup.jsx
                 placeholder="Enter list title"/>
             <button onClick={() => addGroup()}>Add List</button>
             <button onClick={() => onCancel()}>X</button>
 =======
+=======
+>>>>>>> 0ddd1e1769f92a2227540e4f48dc20bdb8d1f832
                 placeholder="Enter list name..."
             />
             <button className="add-new-group" onClick={() => addGroup()}>Add List</button>
             <button className="cancel-add-group" onClick={() => onCancel()}>X</button>
+<<<<<<< HEAD
 >>>>>>> 0ddd1e1769f92a2227540e4f48dc20bdb8d1f832:frontend-react/src/cmps/AddGroup.jsx
+=======
+>>>>>>> 0ddd1e1769f92a2227540e4f48dc20bdb8d1f832
         </section>
     );
 }

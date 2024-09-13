@@ -101,16 +101,22 @@ export async function removeStaredBoard(board) {
 
 export function setBackgroundColor(color) {
     try {
+<<<<<<< HEAD
 <<<<<<< HEAD:PlanIt/src/store/actions/board.actions.js
         const data = getCmdSetBackgroundColor(color)
 
         return data;
 =======
+=======
+>>>>>>> 0ddd1e1769f92a2227540e4f48dc20bdb8d1f832
 
         localStorage.setItem('backgroundColor', color);
         const backgroundColor = getCmdSetBackgroundColor(color);
         return backgroundColor;
+<<<<<<< HEAD
 >>>>>>> 0ddd1e1769f92a2227540e4f48dc20bdb8d1f832:frontend-react/src/store/actions/board.actions.js
+=======
+>>>>>>> 0ddd1e1769f92a2227540e4f48dc20bdb8d1f832
     } catch (err) {
         console.log('Cannot set background color', err);
         throw err;

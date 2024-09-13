@@ -34,10 +34,13 @@ const initialState = {
 
 export function boardReducer(state = initialState, action) {
 
+<<<<<<< HEAD
 <<<<<<< HEAD:PlanIt/src/store/reducers/board.reducer.js
     console.log(action, state)
 =======
 >>>>>>> 0ddd1e1769f92a2227540e4f48dc20bdb8d1f832:frontend-react/src/store/reducers/board.reducer.js
+=======
+>>>>>>> 0ddd1e1769f92a2227540e4f48dc20bdb8d1f832
     var newState = state
     var boards
     switch (action.type) {
@@ -88,11 +91,16 @@ export function boardReducer(state = initialState, action) {
                     }
                 }
             };
+<<<<<<< HEAD
 <<<<<<< HEAD:PlanIt/src/store/reducers/board.reducer.js
 =======
         case SET_TASK:
             return { ...state, task: action.task }
 >>>>>>> 0ddd1e1769f92a2227540e4f48dc20bdb8d1f832:frontend-react/src/store/reducers/board.reducer.js
+=======
+        case SET_TASK:
+            return { ...state, task: action.task }
+>>>>>>> 0ddd1e1769f92a2227540e4f48dc20bdb8d1f832
             break
         case UPDATE_TASK_MEMBERS:
             break
